@@ -40,7 +40,7 @@ cargo doc --no-deps
 Start with the baseline route-plan examples in `src/pipeline.rs`, then add
 concrete classifiers and transport adapters outside the blueprint boundary.
 
-## ARDA Architecture Role
+## Architecture Overview
 
 ```mermaid
 flowchart TB
@@ -53,6 +53,18 @@ flowchart TB
     RoutePlan --> StateExport[core/state/annunimas-signal-grid.json]
     StateExport --> HUD
 ```
+
+## Relationship to ARDA
+
+Signal Grid is ARDA's governed communications projection. It turns raw comments,
+alerts, pauses, and escalation cues into route plans that can be audited by the
+HUD and constrained by policy before any live transport acts.
+
+## Status
+
+Blueprint-stage Rust crate. Hermes remains the live transport owner; this repo
+defines the stable signal-classification and route-plan contract for future
+runtime adapters.
 
 ## Baseline
 
